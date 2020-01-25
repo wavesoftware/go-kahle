@@ -13,6 +13,6 @@ func (s *KahleServer) Run(cfg *config.RunConfig) {
 	log := base.Logger()
 	http.HandleFunc("/webhook", s.webhookHandler)
 	addr := fmt.Sprintf("%s:%d", cfg.Bind, cfg.Port)
-	log.Infof("Kahle is listenning on %s", addr)
+	log.Infof("Kahle (%v) is listenning on %s", base.Version, addr)
 	ensure.NoError(http.ListenAndServe(addr, nil))
 }
